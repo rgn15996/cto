@@ -8,6 +8,9 @@ gem 'rails', '3.2.9'
 group :development, :test do
 	gem 'sqlite3', '1.3.6'
 	gem 'rspec-rails', '2.12.0'
+	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+	gem 'wdm', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
+	gem 'win32console', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
 end
 
 
