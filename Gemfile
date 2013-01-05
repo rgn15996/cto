@@ -11,6 +11,9 @@ gem 'haml', '3.1.7'
 # Use Twitter bootstrap (with SASS) framework
 gem 'bootstrap-sass', '2.2.2.0'
 
+# For secure password hashing
+gem 'bcrypt-ruby', '3.0.1'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.6'
 	gem 'rspec-rails', '2.12.0'
