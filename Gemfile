@@ -8,6 +8,9 @@ gem 'rails', '3.2.9'
 # Install haml for templating
 gem 'haml', '3.1.7'
 
+# Use Twitter bootstrap (with SASS) framework
+gem 'bootstrap-sass', '2.2.2.0'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.6'
 	gem 'rspec-rails', '2.12.0'
