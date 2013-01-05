@@ -53,6 +53,7 @@ GEM
       multi_json (~> 1.0)
     ffi (1.2.0)
     ffi (1.2.0-x86-mingw32)
+    haml (3.1.7)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -149,6 +150,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.0.2)
   coffee-rails (= 3.2.2)
+  haml (= 3.1.7)
   jquery-rails (= 2.1.4)
   pg (= 0.14.1)
   rails (= 3.2.9)

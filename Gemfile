@@ -5,6 +5,9 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Install haml for templating
+gem 'haml', '3.1.7'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.6'
 	gem 'rspec-rails', '2.12.0'
