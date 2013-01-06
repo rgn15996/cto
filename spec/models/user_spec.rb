@@ -16,7 +16,37 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:admin) }
+  
   it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save
+      @user.toggle!(:admin)
+    end
+
+    it { should be_admin }
+  end
+
+  describe "accessible attributes" do
+    it "should not allow access to admin" do
+      expect do
+        User.new(admin: false)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end    
+  end
+
+  #describe "admin should not be settable through assignment" do
+  #  before do
+  #    @user.admin = false
+  #    @user.save
+  #    put "/users/#{@user.id}/?admin=1"
+  #  end
+  #
+  #  it { should_not be_admin }
+  #end
 
   describe "When name is not present" do
   	before { @user.name = '' }
