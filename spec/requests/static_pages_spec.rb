@@ -25,6 +25,14 @@ describe "Static Pages" do
     it_should_behave_like "all static pages"
   end
 
+  describe "Innovation Page" do
+    before { visit innovation_path }
+    let(:heading) { 'Innovation' }
+    let(:page_title) { 'Innovation' }
+
+    it_should_behave_like "all static pages"
+  end
+
   describe "About Page" do
   	before {visit about_path}
     let(:heading) { 'About the ACTO Application' }
@@ -45,6 +53,8 @@ describe "Static Pages" do
     page.should have_title(full_title('About'))
     click_link "Help"
     page.should have_title(full_title('Help'))
+    click_link "Innovation"
+    page.should have_title(full_title('Innovation'))
     click_link "Contact"
     page.should have_title(full_title('Contact'))
     click_link "Home"
