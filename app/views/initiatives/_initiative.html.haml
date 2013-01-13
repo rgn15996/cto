@@ -1,0 +1,8 @@
+%li
+  %span.name
+    %strong= initiative.name
+    - if initiative.created_at > 7.days.ago
+      %span.label.label-info New
+  %span.description= initiative.description
+  %span.timestamp
+    = "Posted #{ time_ago_in_words(initiative.created_at) } ago"

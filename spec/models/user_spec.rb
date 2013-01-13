@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:initiatives) }
   
   it { should be_valid }
   it { should_not be_admin }
@@ -141,5 +142,19 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "initiatives associations" do
+    before { @user.save }
+    let!(:older_initiative) do
+      FactoryGirl.create(:initiative, user: @user, created_at: 10.days.ago)
+    end
+    let!(:newer_initiative) do
+      FactoryGirl.create(:initiative, user: @user, created_at: 2.days.ago)
+    end
+
+    it "should have the right initiatives" do
+      @user.initiatives.should == [newer_initiative, older_initiative]
+    end
   end
 end
