@@ -10,3 +10,5 @@
       %ol.initiatives
         = render @initiatives
       = will_paginate @initiatives
+    - else
+      %h3= "No Initiatives"

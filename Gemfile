@@ -28,6 +28,7 @@ group :development, :test do
 	gem 'sqlite3', '1.3.6'
 	gem 'rspec-rails', '2.12.0'
   gem 'guard-rspec', '2.3.3'
+  gem 'guard-cucumber', '1.3.1'
   gem 'growl', '1.0.3'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'wdm', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
@@ -51,6 +52,8 @@ gem 'jquery-rails', '2.1.4'
 group :test do
   gem 'capybara', '2.0.2'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'cucumber-rails', '1.3.0'
+  gem 'database_cleaner', '0.9.1'
 end
 
 group :production do
