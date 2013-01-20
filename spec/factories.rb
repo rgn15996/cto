@@ -13,6 +13,7 @@ FactoryGirl.define do
   factory :innovation_idea do
     title "Revolutionary idea"
     description "Do something really extraordinary"
+    user
   end
 
   factory :initiative do
