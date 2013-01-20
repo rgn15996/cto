@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	
+  	@innovation_ideas = InnovationIdea.all if signed_in?
   end
 
   def help

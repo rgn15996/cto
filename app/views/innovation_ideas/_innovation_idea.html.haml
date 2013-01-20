@@ -1,0 +1,8 @@
+%li
+  %span.name
+    %strong= innovation_idea.title
+    - if innovation_idea.created_at > 3.days.ago
+      %span.label.label-info New
+  %span.description= innovation_idea.description
+  %span.timestamp
+    = "Posted #{ time_ago_in_words(innovation_idea.created_at) } ago"

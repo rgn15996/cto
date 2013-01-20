@@ -1,10 +1,23 @@
 /- provide(:title, '')
-.center.hero-unit
-  %h1
-    Welcome to the Account Client Technology Office
-  %h2
-    This is the home page for the ACTO web application
-  = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
-  %p
-    Initial development home page!
-  = link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/'
+- if signed_in?
+  .row
+    %aside.span4
+      %section
+        = render 'shared/user_info'
+      %section
+      - if @innovation_ideas.any?
+        %h3= "New Innovation Ideas (#{@innovation_ideas.count})"
+        %ol.initiatives
+          = render @innovation_ideas
+      - else
+        %h3 No New Innovation Ideas
+- else
+  .center.hero-unit
+    %h1
+      Welcome to the Account Client Technology Office
+    %h2
+      This is the home page for the ACTO web application
+    = link_to "Sign up now!", signup_path, class: "btn btn-large btn- primary"
+    %p
+      Initial development home page!
+    = link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails .org/'

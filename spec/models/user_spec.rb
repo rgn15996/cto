@@ -3,11 +3,17 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+    # @user = User.new(name: "Example User", email: "user@example.com",
+    #                  password: "foobar", password_confirmation: "foobar")
+    @user = FactoryGirl.build(:user, name: "Example User", 
+                               email: "user@example.com",
+                               password: "foobar", 
+                               password_confirmation: "foobar" )
   end
 
   subject { @user }
+
+  # user.email.should == "user@example.com"
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
@@ -87,7 +93,9 @@ describe User do
   	  user_with_same_email.save
   	end
 
+    
   	it { should_not be_valid }
+
   end
   describe "When case insensitive email address is taken" do
   	before do

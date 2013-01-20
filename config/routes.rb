@@ -1,4 +1,8 @@
 Cto::Application.routes.draw do
+  get "innovation_ideas/create"
+
+  get "innovation_ideas/destroy"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :initiatives

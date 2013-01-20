@@ -10,6 +10,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :innovation_idea do
+    title "Revolutionary idea"
+    description "Do something really extraordinary"
+  end
+
   factory :initiative do
     name "My whizzy new idea"
     description "This is my whizzy new idea this is..."

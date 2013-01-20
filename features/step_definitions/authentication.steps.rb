@@ -18,8 +18,10 @@ Given /^the user has an account$/ do
 end
 
 Given /^a signed in user$/ do
-  @user = User.create(name: "Example User", email: "user@example.com",
-                      password: "foobar", password_confirmation: "foobar")
+  #@user = User.create(name: "Example User", email: "user@example.com",
+  #                    password: "foobar", password_confirmation: "foobar")
+  #login(@user.email, @user.password)
+  @user = FactoryGirl.create(:user)
   login(@user.email, @user.password)
 end
 
