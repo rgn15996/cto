@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe InnovationIdea do
-  
+  let (:user) { FactoryGirl.create(:user) }
   before do
-    @idea = FactoryGirl.build(:innovation_idea)
+    @idea = user.innovation_ideas.build(title: "Great new idea", description: "Lets do amazing")
   end
 
   subject { @idea }
@@ -12,6 +12,7 @@ describe InnovationIdea do
 
   it { should respond_to(:title) }
   it { should respond_to(:description) }
+  it { should respond_to(:user_id) }
   
   it { should be_valid }
 

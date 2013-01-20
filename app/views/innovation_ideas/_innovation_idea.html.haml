@@ -1,6 +1,9 @@
 %li
   %span.name
-    %strong= innovation_idea.title
+    %strong
+      = innovation_idea.title
+      posted by
+      = link_to innovation_idea.user.name, user_path(innovation_idea.user)
     - if innovation_idea.created_at > 3.days.ago
       %span.label.label-info New
   %span.description= innovation_idea.description

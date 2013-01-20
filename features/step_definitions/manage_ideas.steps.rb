@@ -3,8 +3,9 @@ Given /^there are (\d+) innovation ideas$/ do |arg1|
 end
 
 Given /^an innovation idea with the title "(.*?)"$/ do |title|
-  @innovation_idea = FactoryGirl.create(:innovation_idea, 
-                                        title: title )
+  another_user = FactoryGirl.create(:user)
+  @innovation_idea = FactoryGirl.create(:innovation_idea, user: another_user,
+                                         title: title)
 end
 
 When /^the user visits the home page$/ do
