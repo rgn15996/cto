@@ -22,4 +22,5 @@ module InnovationIdeaSteps
     click_button "Save"
   end
 end
+
 World(LoginSteps, InnovationIdeaSteps)
