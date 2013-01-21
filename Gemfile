@@ -5,6 +5,9 @@ gem 'rails', '3.2.10'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Install thin web server for development
+gem 'thin', '1.5.0'
+
 # Install haml for templating
 gem 'haml', '3.1.7'
 
