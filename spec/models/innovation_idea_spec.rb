@@ -26,4 +26,12 @@ describe InnovationIdea do
     before { @idea.description = '' }
     it { should_not be_valid }
   end
+
+  describe "accessible attributes" do
+    it "should not allow access to user_id" do
+      expect do
+        InnovationIdea.new(user_id: user.id)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end    
+  end
 end

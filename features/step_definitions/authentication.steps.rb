@@ -33,6 +33,14 @@ Then /^the user should see their profile page$/ do
   page.should have_title(full_title(@user.name))
 end
 
+Then /^the user should see the signed (in|out) homepage$/ do |status|
+  if status == 'in'
+    page.should have_content('View my profile')
+  else
+    page.should have_content('Welcome to the Account')
+  end
+end
+
 Then /^the user should see a signout link$/ do
   page.should have_link('Sign out', href: signout_path)
 end

@@ -19,3 +19,12 @@ end
 Then /^the user should see an innovation idea with the title "(.*?)"$/ do |title|
   page.should have_content( title )
 end
+
+When /^the user creates a valid innovation idea$/ do
+  create_new_idea('Wondrous revelation', 'Amazing invention that works like this...')
+end
+
+Then /^the user should see their innovation idea$/ do
+  visit root_path
+  page.should have_content('Wondrous revelation')
+end

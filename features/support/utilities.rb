@@ -12,4 +12,14 @@ module LoginSteps
   end
 end
 
-World(LoginSteps)
+module InnovationIdeaSteps
+  def create_new_idea(title, description)
+    visit root_path
+    click_button "Submit idea"
+  
+    fill_in "Title", with: title
+    fill_in "Description", with: description
+    click_button "Save"
+  end
+end
+World(LoginSteps, InnovationIdeaSteps)
