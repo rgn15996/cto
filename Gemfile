@@ -33,6 +33,7 @@ group :development, :test do
   gem 'guard-rspec', '2.3.3'
   gem 'guard-cucumber', '1.3.1'
   gem 'growl', '1.0.3'
+  gem 'launchy', '2.1.2'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'wdm', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
 end
