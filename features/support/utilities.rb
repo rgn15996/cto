@@ -15,7 +15,8 @@ end
 module InnovationIdeaSteps
   def create_new_idea(title, description)
     visit root_path
-    click_button "Submit idea"
+    # Its a link, not a button?
+    click_link('Create an idea')
   
     fill_in "Title", with: title
     fill_in "Description", with: description
