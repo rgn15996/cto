@@ -5,10 +5,11 @@
       %h3= @user.name
       = @user.email
   .span8
-    - if @user.initiatives.any?
-      %h3= "Initiatives (#{@user.initiatives.count})"
+    - if @user.innovation_ideas.any?
+      %h3= "My Innovation Ideas (#{@user.innovation_ideas.count})"
+      = will_paginate @innovation_ideas
       %ol.initiatives
-        = render @initiatives
-      = will_paginate @initiatives
+        = render @innovation_ideas
+      = will_paginate @innovation_ideas
     - else
-      %h3= "No Initiatives"
+      %h3= "No Innovation Ideas"

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @initiatives = @user.initiatives.paginate(page: params[:page])
+    @innovation_ideas = @user.innovation_ideas.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def index
