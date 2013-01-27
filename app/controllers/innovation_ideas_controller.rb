@@ -15,6 +15,10 @@ class InnovationIdeasController < ApplicationController
     end
   end
 
+  def show
+    @innovation_idea = InnovationIdea.find(params[:id])
+  end
+  
   def destroy
   end
 end

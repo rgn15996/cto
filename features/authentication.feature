@@ -7,7 +7,7 @@ Feature: Authentication
 
   Scenario: Successful signin
     Given a user visits the signin page
-      And the user has an account
+      And the user "bob@bob.com" has an account with password "geronimo"
     When the user submits valid signin information
     Then the user should see the signed in homepage
       And the user should see a signout link
@@ -15,4 +15,4 @@ Feature: Authentication
   Scenario: Another successful sign in
     Given a signed in user
     When the user visits their profile page
-    Then the user should see their initiatives displayed
+    Then the user should see their innovation ideas displayed

@@ -5,8 +5,8 @@ Feature: Innovation ideas
 
   Scenario: User sees new innovation ideas when they sign in 
     Given a signed in user
-      And an innovation idea with the title "Flying cars"
-      And an innovation idea with the title "Meal in a pill"
+      And another user creates an innovation idea with the title "Flying cars"
+      And another user creates an innovation idea with the title "Meal in a pill"
     When the user visits the home page
     Then the user should see 2 innovation ideas displayed
       And the user should see an innovation idea with the title "Flying cars"
@@ -14,9 +14,27 @@ Feature: Innovation ideas
 
   Scenario: User creates an innovation idea
     Given a signed in user
-    When the user creates a valid innovation idea
+    When the user creates an innovation idea with title "Bingo!"
     And the user visits the home page
-    Then the user should see their innovation idea
+    Then the user should see an innovation idea with the title "Bingo!"
   
+  Scenario: User creates another innovation idea
+    Given a signed in user
+    When the user creates an innovation idea with title "Excellent idea"
+    And the user visits their profile page
+    Then the user should see an innovation idea with the title "Excellent idea"
   
-  
+  Scenario: User views detail of their own idea
+    Given a signed in user
+    And the user creates an innovation idea with title "Excellent idea"
+    When the user visits their profile page
+    And the user clicks the link "Excellent idea"
+    Then the user should see an innovation idea with the title "Excellent idea"
+    And the user should see a link "Edit"
+
+  Scenario: User views details of someone else's idea
+    Given a signed in user
+    And another user creates an innovation idea with the title "My big idea"
+    When the user visits the home page
+    And the user clicks the link "My big idea"
+    Then the user should see an innovation idea with the title "My big idea"

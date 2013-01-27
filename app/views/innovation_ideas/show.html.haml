@@ -1,0 +1,22 @@
+- provide(:title, 'Review Idea')
+%h3
+  = @innovation_idea.title
+.btn-group.open
+  %a.btn.btn-primary{href: "#"}
+    %i.icon-user
+    User
+  %a.btn.btn-primary.dropdown-toggle{ href: "#", data: {toggle: "dropdown" }}
+    %span.icon-caret-down
+  %ul.dropdown-menu
+    %li
+      %a{ href: "#{edit_innovation_idea_path(@innovation_idea)}"}
+        %i.icon-pencil
+        Edit
+    %li
+      %a{ href: "#"}
+        %i.icon-trash
+        Delete
+.row
+  .span6.offset3
+    = @innovation_idea.description
+

@@ -1,7 +1,7 @@
 %li
   %span.name
     %strong
-      = innovation_idea.title
+      = link_to innovation_idea.title, innovation_idea_path(innovation_idea)
     posted by
     = link_to innovation_idea.user.name, user_path(innovation_idea.user)
     - if innovation_idea.created_at > 3.days.ago
