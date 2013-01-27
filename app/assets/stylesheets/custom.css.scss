@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$gold: #e3cf7a;
 $HPBlue:  #0096D6;
 $AvivaYellow: #FFD900;
 
@@ -232,3 +233,27 @@ input {
     margin-bottom: 5px;
   }
  }
+ /* Ratings stars */
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+.rating > span {
+  color: $grayLight;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+  content: "\f006";
+
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\f005";
+   color: $gold;
+   position: absolute;
+}
