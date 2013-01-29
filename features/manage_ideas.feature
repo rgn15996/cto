@@ -38,3 +38,16 @@ Feature: Innovation ideas
     When the user visits the home page
     And the user clicks the link "My big idea"
     Then the user should see an innovation idea with the title "My big idea"
+
+  Scenario: User views unrated idea
+    Given a signed in user
+    And another user creates an innovation idea with the title "My big idea"
+    When the user visits the idea's page
+    Then the page should have content "You have not rated this idea"
+
+  Scenario: User rates an idea
+    Given a signed in user
+    And another user creates an innovation idea with the title "My big idea"
+    And the user gives the idea a rating of 3 stars
+    And the user visits the idea's page
+    Then the page should have content "You rated this idea"

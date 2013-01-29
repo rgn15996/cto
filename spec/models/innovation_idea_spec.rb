@@ -9,11 +9,11 @@ describe InnovationIdea do
 
   subject { @idea }
 
-
-
   it { should respond_to(:title) }
-  it { should respond_to(:description) }
+  it { should respond_to(:description) }  
   it { should respond_to(:user_id) }
+  it { should respond_to(:ratings) }
+  it { should respond_to(:raters) }
 
   it { should be_valid }
 
@@ -33,5 +33,16 @@ describe InnovationIdea do
         InnovationIdea.new(user_id: user.id)
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end    
+  end
+
+  describe "user rates idea" do
+
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      @idea.save
+      user.rate_idea!(@idea, 4)
+    end
+
+    its(:raters) { should include(user) }
   end
 end

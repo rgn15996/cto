@@ -31,3 +31,14 @@ end
 Then /^the user should see a link "(.*)"$/ do |link|
   page.should have_link(link)
 end
+
+Then /^the page should have content "(.*?)"$/ do |content|
+  page.should have_content(content)
+end
+
+When /^the user visits the idea's page$/ do
+  visit innovation_idea_path(@innovation_idea)
+end
+When /^the user gives the idea a rating of (\d+) stars$/ do |score|
+  @user.rate_idea!(@innovation_idea, score) 
+end

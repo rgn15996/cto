@@ -1,17 +1,26 @@
 - provide(:title, 'Review Idea')
 %h3
   = @innovation_idea.title
-  %span.rating
-    %span.star
-      %i.icon-star-empty
-    %span.star
-      %i.icon-star-empty
-    %span.star
-      %i.icon-star-empty
-    %span.star
-      %i.icon-star-empty
-    %span.star
-      %i.icon-star-empty
+  
+//- if @innovation_idea.ratings.find_by_rater_id(current_user.id) == nil
+- if @innovation_idea.raters.where("rater_id = ?", current_user.id).any?
+  %p
+    = "You have rated this idea and you gave it xxx points"
+- else
+  %p
+    You have not rated this idea
+%span.rating
+  %span.star#score-5
+    %i.icon-star-empty
+  %span.star#score-4
+    %i.icon-star-empty
+  %span.star#score-3
+    %i.icon-star-empty
+  %span.star#score-2
+    %i.icon-star-empty
+  %span.star#score-1
+    %i.icon-star-empty
+%p
 .btn-group.open
   %a.btn.btn-primary{href: "#"}
     %i.icon-user

@@ -3,8 +3,6 @@ require 'spec_helper'
 describe User do
 
   before do
-    # @user = User.new(name: "Example User", email: "user@example.com",
-    #                  password: "foobar", password_confirmation: "foobar")
     @user = FactoryGirl.build(:user, name: "Example User", 
                                email: "user@example.com",
                                password: "foobar", 
@@ -12,8 +10,6 @@ describe User do
   end
 
   subject { @user }
-
-  # user.email.should == "user@example.com"
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
@@ -24,6 +20,10 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:initiatives) }
+  it { should respond_to(:ratings) }
+  it { should respond_to(:rated_ideas)}
+  it { should respond_to(:rated_idea?) }
+  it { should respond_to(:rate_idea!) }
   
   it { should be_valid }
   it { should_not be_admin }
@@ -163,6 +163,36 @@ describe User do
 
     it "should have the right initiatives" do
       @user.initiatives.should == [newer_initiative, older_initiative]
+    end
+  end
+
+  describe "innovation ideas associations" do
+    before { @user.save }
+    let!(:first_idea) { FactoryGirl.create(:innovation_idea, user: @user)}
+    let!(:second_idea) { FactoryGirl.create(:innovation_idea, user: @user)}
+    it "should not destroy associated ideas when deleted" do
+      copied_ideas = @user.innovation_ideas.dup
+      @user.destroy
+      copied_ideas.should_not be_empty
+      copied_ideas.each do |idea|
+        InnovationIdea.find_by_id(idea.id).should_not be_nil
+      end
+    end
+  end
+  describe "innovation idea ratings" do
+    before { @user.save }
+    let!(:first_idea) { FactoryGirl.create(:innovation_idea, user: @user)}
+    let!(:second_idea) { FactoryGirl.create(:innovation_idea, user: @user)}
+
+    it "should destroy associated ratings when deleted" do
+      @user.rate_idea!(first_idea, 3)
+      @user.rate_idea!(second_idea, 4)
+      copied_ratings = @user.ratings.dup
+      @user.destroy
+      copied_ratings.should_not be_empty
+      copied_ratings.each do |rating|
+        Rating.find_by_id(rating.id).should be_nil
+      end
     end
   end
 end

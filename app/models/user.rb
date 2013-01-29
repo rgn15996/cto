@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :initiatives
   has_many :innovation_ideas
 
+  has_many :ratings, foreign_key: "rater_id", dependent: :destroy
+  has_many :rated_ideas, through: :ratings, source: :rated
+
   has_secure_password
 
   before_save { self.email.downcase! }
@@ -15,6 +18,14 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
+
+  def rated_idea?(idea)
+    ratings.find_by_rated_id(idea)
+  end
+  
+  def rate_idea!(idea, score)
+    ratings.create!(rated_id: idea.id, score: score)
+  end
 
   private
 
