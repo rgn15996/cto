@@ -36,7 +36,7 @@ group :development, :test do
   gem 'launchy', '2.1.2'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'wdm', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
-  gem 'railroady', '1.1.0'
+  gem 'railroady', '1.1.0' if RUBY_PLATFORM =~ /darwin/i
 end
 
 
