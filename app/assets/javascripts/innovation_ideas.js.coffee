@@ -7,7 +7,13 @@ $ ->
     $('#score-' + i).bind "click",
       id: i,
       (event) ->
-        alert('you clicked ' + event.data.id)
-        for n in [event.data.id..1]
-          $('#score-' + n).css('background-color', '#1f1')
-          
+        for n in [5..1]
+          element = $('#score-' + n + ' i')
+          if n > event.data.id
+            if element.hasClass("icon-star")
+              element.removeClass("icon-star")
+              element.addClass("icon-star-empty")
+          else
+            if element.hasClass("icon-star-empty")
+              element.removeClass("icon-star-empty")
+              element.addClass("icon-star")

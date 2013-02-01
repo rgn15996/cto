@@ -1,42 +1,40 @@
 - provide(:title, 'Review Idea')
-%h3
-  = @innovation_idea.title
-  
-//- if @innovation_idea.ratings.find_by_rater_id(current_user.id) == nil
-- if @innovation_idea.raters.where("rater_id = ?", current_user.id).any?
-  %p
-    = "You have rated this idea and you gave it xxx points"
-- else
-  %p
-    You have not rated this idea
-%span.rating
-  %span.star#score-5
-    %i.icon-star-empty
-  %span.star#score-4
-    %i.icon-star-empty
-  %span.star#score-3
-    %i.icon-star-empty
-  %span.star#score-2
-    %i.icon-star-empty
-  %span.star#score-1
-    %i.icon-star-empty
-%p
-.btn-group.open
-  %a.btn.btn-primary{href: "#"}
-    %i.icon-user
-    User
-  %a.btn.btn-primary.dropdown-toggle{ href: "#", data: {toggle: "dropdown" }}
-    %span.icon-caret-down
-  %ul.dropdown-menu
-    %li
-      %a{ href: "#{edit_innovation_idea_path(@innovation_idea)}"}
-        %i.icon-pencil
-        Edit
-    %li
-      %a{ href: "#"}
-        %i.icon-trash
-        Delete
 .row
   .span6.offset3
+    %h3= @innovation_idea.title
+.row
+  .span3
+    %ul.nav.nav-list
+      %li.active
+        %a{ href: "#"}
+          %i.icon-home
+            Home
+      %li
+        %a{ href: "#{edit_innovation_idea_path(@innovation_idea)}"}
+          %i.icon-pencil
+            Edit
+      %li
+        %a{ href: "#"}
+          %i.icon-trash
+            Delete
+  .span6
+    //- if @innovation_idea.ratings.find_by_rater_id(current_user.id) == nil
+    - if @innovation_idea.raters.where("rater_id = ?", current_user.id).any?
+      %p
+        = "You have rated this idea and you gave it xxx points"
+    - else
+      %p
+        You have not rated this idea
+    %span.rating
+      %span.star#score-5
+        %i.icon-star-empty
+      %span.star#score-4
+        %i.icon-star-empty
+      %span.star#score-3
+        %i.icon-star-empty
+      %span.star#score-2
+        %i.icon-star-empty
+      %span.star#score-1
+        %i.icon-star-empty
     = @innovation_idea.description
 

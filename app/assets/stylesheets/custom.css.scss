@@ -253,8 +253,15 @@ input {
 }
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
-   content: "\f005";
-   color: $gold;
-   position: absolute;
-   margin-top: 5px;
+  content: "\f005";
+  color: $gold;
+  position: absolute;
+  margin-top: 5px;
+}
+.rating.empty {
+  content: "\f006";
+}
+.rating.full {
+  content: "\f005";
+  color: $gold;
 }
