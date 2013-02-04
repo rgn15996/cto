@@ -236,32 +236,14 @@ input {
  /* Ratings stars */
 
 .rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  font-size: 30px;
-}
-.rating > span {
-  color: $grayLight;
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  position: relative;
-  content: "\f006";
-
-  width: 1.1em;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-  content: "\f005";
-  color: $gold;
-  position: absolute;
-  margin-top: 5px;
-}
-.rating.empty {
-  content: "\f006";
-}
-.rating.full {
-  content: "\f005";
-  color: $gold;
+  .star {
+    color: $grayLight;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    display: inline-block;
+    position: relative;
+    content: "\f006";
+  }
 }

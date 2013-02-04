@@ -17,6 +17,9 @@ class InnovationIdeasController < ApplicationController
 
   def show
     @innovation_idea = InnovationIdea.find(params[:id])
+    @rating = current_user.ratings.find_by_rated_id(@innovation_idea) || 
+              current_user.ratings.build({rater_id: current_user.id, rated_id: @innovation_idea.id}, 
+                                         without_protection: true)
   end
   
   def destroy

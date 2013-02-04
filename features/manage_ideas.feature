@@ -5,12 +5,12 @@ Feature: Innovation ideas
 
   Scenario: User sees new innovation ideas when they sign in 
     Given a signed in user
-      And another user creates an innovation idea with the title "Flying cars"
-      And another user creates an innovation idea with the title "Meal in a pill"
+    And another user creates an innovation idea with the title "Flying cars"
+    And another user creates an innovation idea with the title "Meal in a pill"
     When the user visits the home page
     Then the user should see 2 innovation ideas displayed
-      And the user should see an innovation idea with the title "Flying cars"
-      And the user should see an innovation idea with the title "Meal in a pill"
+    And the user should see an innovation idea with the title "Flying cars"
+    And the user should see an innovation idea with the title "Meal in a pill"
 
   Scenario: User creates an innovation idea
     Given a signed in user
@@ -50,4 +50,4 @@ Feature: Innovation ideas
     And another user creates an innovation idea with the title "My big idea"
     And the user gives the idea a rating of 3 stars
     And the user visits the idea's page
-    Then the page should have content "You rated this idea"
+    Then the page should have content "You have rated this idea"

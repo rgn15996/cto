@@ -4,6 +4,7 @@ Cto::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :initiatives
   resources :innovation_ideas
+  resources :ratings
 
   root :to => 'static_pages#home'
 

@@ -21,17 +21,17 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 
 # Pagination
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
 # Mardown processing filter for haml code
-gem 'rdiscount', '1.6.8'
+gem 'rdiscount', '2.0.7'
 
 group :development, :test do
-	gem 'sqlite3', '1.3.6'
-	gem 'rspec-rails', '2.12.0'
-  gem 'guard-rspec', '2.3.3'
-  gem 'guard-cucumber', '1.3.1'
+	gem 'sqlite3', '1.3.7'
+	gem 'rspec-rails', '2.12.2'
+  gem 'guard-rspec', '2.4.0'
+  gem 'guard-cucumber', '1.3.2'
   gem 'growl', '1.0.3'
   gem 'launchy', '2.1.2'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
@@ -43,7 +43,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '3.2.5'
+  gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -52,11 +52,11 @@ group :assets do
   gem 'uglifier', '1.3.0'
 end
 
-gem 'jquery-rails', '2.1.4'
+gem 'jquery-rails', '2.2.0'
 
 group :test do
   gem 'capybara', '2.0.2'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails', '4.2.0'
   gem 'cucumber-rails', '1.3.0'
   gem 'database_cleaner', '0.9.1'
 end

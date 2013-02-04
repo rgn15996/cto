@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :innovation_ideas
 
   has_many :ratings, foreign_key: "rater_id", dependent: :destroy
+  
   has_many :rated_ideas, through: :ratings, source: :rated
 
   has_secure_password
@@ -24,7 +25,13 @@ class User < ActiveRecord::Base
   end
   
   def rate_idea!(idea, score)
-    ratings.create!(rated_id: idea.id, score: score)
+    if current_rating = ratings.find_by_rated_id(idea)
+      # ratings.update_attributes(current_rating, score: score)
+      current_rating.score = score
+      current_rating.save!
+    else
+      ratings.create!(rated_id: idea.id, score: score)
+    end
   end
 
   private

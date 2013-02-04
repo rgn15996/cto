@@ -1,40 +1,48 @@
 - provide(:title, 'Review Idea')
 .row
   .span6.offset3
-    %h3= @innovation_idea.title
+    %h3
+      = @innovation_idea.title
+    - form_id = "idea_#{@innovation_idea.id}_rating"
+    %span.rating{ data: {score: @rating.score}}
+      - 1.upto(5).each do |element|
+        %span.star{id: "score-#{element}", data: { score: element, formid: form_id}}
+          %i.icon-star
+    = form_for @rating, html: { id: form_id } do |f|
+      = f.hidden_field :rater_id
+      = f.hidden_field :rated_id
+      = f.hidden_field :score, id: form_id + "_score"
 .row
   .span3
     %ul.nav.nav-list
       %li.active
         %a{ href: "#"}
           %i.icon-home
-            Home
+          Home
       %li
         %a{ href: "#{edit_innovation_idea_path(@innovation_idea)}"}
           %i.icon-pencil
-            Edit
+          Edit
+      %li
+        %a{ href: "#"}
+          %i.icon-quote-left
+          Comment
+      %li
+        %a{ href: "#"}
+          %i.icon-heart
+          Add to favourites
       %li
         %a{ href: "#"}
           %i.icon-trash
-            Delete
+          Delete
   .span6
-    //- if @innovation_idea.ratings.find_by_rater_id(current_user.id) == nil
-    - if @innovation_idea.raters.where("rater_id = ?", current_user.id).any?
+    %p= "Average rating: #{@innovation_idea.ravg}"
+    %p= "Rated by #{pluralize(@innovation_idea.rcount, 'user')}"
+    - if @rating.score
       %p
-        = "You have rated this idea and you gave it xxx points"
+        = "You have rated this idea as a #{@rating.score}"
     - else
       %p
         You have not rated this idea
-    %span.rating
-      %span.star#score-5
-        %i.icon-star-empty
-      %span.star#score-4
-        %i.icon-star-empty
-      %span.star#score-3
-        %i.icon-star-empty
-      %span.star#score-2
-        %i.icon-star-empty
-      %span.star#score-1
-        %i.icon-star-empty
     = @innovation_idea.description
 
