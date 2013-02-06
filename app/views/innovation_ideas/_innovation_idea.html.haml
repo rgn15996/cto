@@ -4,6 +4,8 @@
       = link_to innovation_idea.title, innovation_idea_path(innovation_idea)
     posted by
     = link_to innovation_idea.user.name, user_path(innovation_idea.user)
+    %span
+      = rating_stars(innovation_idea.ravg)
     - if innovation_idea.created_at > 3.days.ago
       %span.label.label-info New
   %span.description= innovation_idea.description
