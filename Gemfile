@@ -37,6 +37,9 @@ group :development, :test do
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'wdm', :require => false if RUBY_PLATFORM =~ /i386-mingw32/i
   gem 'railroady', '1.1.0' if RUBY_PLATFORM =~ /darwin/i
+  gem 'better_errors', '0.5.0'
+  gem 'binding_of_caller', '0.6.8'
+  gem 'meta_request', '0.2.1'
 end
 
 
