@@ -2,19 +2,11 @@
   %span.name
     %strong
       = link_to innovation_idea.title, innovation_idea_path(innovation_idea)
-  %span
-    = rating_stars(innovation_idea.ravg.round)
-  %span
-    posted by
-    = link_to innovation_idea.user.name, user_path(innovation_idea.user)
-<<<<<<< HEAD
-=======
     %span
       = rating_stars(innovation_idea.ravg.round)
     - if innovation_idea.created_at > 3.days.ago
       %span.label.label-info New
   %span.description= innovation_idea.description
->>>>>>> Use round as input to rating stars
   %span.timestamp
     = " #{ time_ago_in_words(innovation_idea.created_at) } ago"
   - if innovation_idea.created_at > 3.days.ago
