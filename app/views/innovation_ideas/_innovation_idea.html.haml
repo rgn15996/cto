@@ -9,5 +9,4 @@
   %span.description= innovation_idea.description
   %span.timestamp
     = " #{ time_ago_in_words(innovation_idea.created_at) } ago"
-  - if innovation_idea.created_at > 3.days.ago
-    %span.label.label-info New
+
