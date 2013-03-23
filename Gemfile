@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Install thin web server for development
-gem 'thin', '1.5.0'
+gem 'thin', '1.5.1'
 
 # Install haml for templating
-gem 'haml', '4.0.0'
+gem 'haml', '4.0.1'
 
 # Use Twitter bootstrap (with SASS) framework
-gem 'bootstrap-sass', '2.3.0.1'
+gem 'bootstrap-sass', '2.3.1.0'
 
 # For secure password hashing
 gem 'bcrypt-ruby', '3.0.1'
@@ -30,7 +30,7 @@ gem 'rdiscount', '1.6.8'
 group :development, :test do
 	gem 'sqlite3', '1.3.7'
 	gem 'rspec-rails', '2.13.0'
-  gem 'guard-rspec', '2.5.0'
+  gem 'guard-rspec', '2.5.1'
   gem 'guard-cucumber', '1.3.2'
   gem 'growl', '1.0.3'
   gem 'launchy', '2.2.0'
@@ -60,7 +60,7 @@ gem 'jquery-rails', '2.2.1'
 group :test do
   gem 'capybara', '2.0.2'
   gem 'factory_girl_rails', '4.2.1'
-  gem 'cucumber-rails', '1.3.0'
+  gem 'cucumber-rails', '1.3.1'
   gem 'database_cleaner', '0.9.1'
 end
 
