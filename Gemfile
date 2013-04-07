@@ -9,7 +9,7 @@ gem 'rails', '3.2.13'
 gem 'thin', '1.5.1'
 
 # Install haml for templating
-gem 'haml', '4.0.1'
+gem 'haml', '4.0.2'
 
 # Use Twitter bootstrap (with SASS) framework
 gem 'bootstrap-sass', '2.3.1.0'
@@ -30,8 +30,8 @@ gem 'rdiscount', '1.6.8'
 group :development, :test do
 	gem 'sqlite3', '1.3.7'
 	gem 'rspec-rails', '2.13.0'
-  gem 'guard-rspec', '2.5.1'
-  gem 'guard-cucumber', '1.3.2'
+  gem 'guard-rspec', '2.5.2'
+  gem 'guard-cucumber', '1.4.0'
   gem 'growl', '1.0.3'
   gem 'launchy', '2.2.0'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
@@ -52,20 +52,20 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '1.3.0'
+  gem 'uglifier', '2.0.1'
 end
 
 gem 'jquery-rails', '2.2.1'
 
 group :test do
-  gem 'capybara', '2.0.2'
+  gem 'capybara', '2.0.3'
   gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.3.1'
   gem 'database_cleaner', '0.9.1'
 end
 
 group :production do
-  gem 'pg', '0.14.1'
+  gem 'pg', '0.15.0'
 end
 
 # To use ActiveModel has_secure_password
